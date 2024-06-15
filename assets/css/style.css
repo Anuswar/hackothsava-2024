@@ -5,18 +5,18 @@
 
 /* =============== VARIABLES =============== */
 :root {
-  --main-color: hsl(42, 99%, 46%);
+  --main-color: hsl(212, 80%, 20%);
 
   /* text colors */
   --text-dark-gray: hsl(0, 0%, 25%);
-  --text-x-dark-gray: hsla(280, 37%, 8%, 0.9);
-  --text-black: hsl(0, 0%, 0%);
+  --text-x-dark-gray: hsl(212, 90%, 8%);
+  --text-black: hsl(214, 84%, 5%);
 
   /* bg colors */
-  --bg-light-yellow: hsl(0, 0%, 100%);;
-  --bg-x-light-yellow: hsl(0, 0%, 97%);
-  --bg-green: hsl(167, 57%, 52%);
-  --bg-purple: hsl(253, 79%, 77%);
+  --bg-light-yellow: hsl(204, 50%, 96%);
+  --bg-x-light-yellow: hsl(200, 60%, 86%);
+  --bg-green: hsl(200, 65%, 55%);
+  --bg-purple: hsl(212, 89%, 10%);
 
   /* border colors */
   --border-dark: hsla(0, 0%, 0%, 0.1);
@@ -346,7 +346,7 @@ button {
   position: absolute;
   inset: 0;
   transform: skewX(var(--skewX, -16deg));
-  background-color: var(--bg, var(--main-color));
+  background-color: var(--bg, var(--bg-green));
   z-index: -1;
 }
 
@@ -843,9 +843,9 @@ button {
   position: relative;
 }
 
-.about-img-box img {
+/* .about-img-box img {
   filter: grayscale(1);
-}
+} */
 
 .about-decor1,
 .about-decor2 {
@@ -944,6 +944,26 @@ button {
   text-transform: capitalize;
   margin-top: 4px;
 }
+
+
+/* .guests-job {
+  text-transform: capitalize;
+  margin-top: 4px;
+  opacity: 0; 
+  max-height: 0; 
+  overflow: hidden; 
+  transition: max-height 0.5s ease, opacity 0.2s ease;
+}
+
+.guests-item:hover .guests-job {
+  opacity: 1; 
+  max-height: 300px; 
+}
+
+.guests-item:not(:hover) .guests-job {
+  opacity: 1;
+  max-height: 0;
+} */
 
 /* ======= BREAKPOINTS ======= */
 @media (max-width: 575px) {
