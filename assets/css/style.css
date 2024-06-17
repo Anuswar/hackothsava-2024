@@ -406,6 +406,7 @@ body {
 .navbar-link:is(:hover, :focus) { background-color: var(--white_10); }
 
 /* =============== HERO =============== */
+
 .hero-banner { display: none; }
 
 .hero {
@@ -427,12 +428,46 @@ body {
   text-transform: uppercase;
 }
 
-.hero-title { margin-block: 15px 12px; }
+.hero-title { 
+  margin-block: 15px 12px; 
+  font-size: var(--fs-2); /* Adjust font size as needed */
+  color: var(--white); /* Adjust font color */
+}
+
+.hero-title .span {
+  color: var(--marigold); /* Adjust to your color variable */
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.hero-title .span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--marigold); /* Adjust to your background color */
+  border-left: 2px solid var(--raisin-black-2); /* Adjust border color */
+  animation: animate 4s steps(12) infinite;
+}
+
+@keyframes animate {
+  40%, 60% {
+    left: calc(100% + 4px);
+  }
+  100% {
+    left: 0%;
+  }
+}
 
 .hero-text {
   color: var(--light-gray-2);
   margin-block-end: 45px;
+  font-size: 1.5rem; /* Adjust font size as needed */
 }
+
 
 /* =============== SPONSORS =============== */
 .sponsors {
