@@ -121,3 +121,40 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+/*=============== BACK TO TOP ===============*/
+// Function to show or hide the scroll-up button based on scroll position
+const scrollUp = () => {
+  const scrollUpButton = document.getElementById("scroll-up");
+  if (scrollUpButton) {
+    if (window.scrollY >= 350) {
+      scrollUpButton.classList.add("show-scroll");
+    } else {
+      scrollUpButton.classList.remove("show-scroll");
+    }
+  }
+};
+
+// Function to smoothly scroll to the top when the button is clicked
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
+// Add event listener for scroll to show/hide the button
+window.addEventListener("scroll", scrollUp);
+
+// Add event listener for click on the scroll-up button to scroll to the top
+const scrollUpButton = document.getElementById("scroll-up");
+if (scrollUpButton) {
+  scrollUpButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    scrollToTop();
+  });
+}
+
+// Disable scroll restoration
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
