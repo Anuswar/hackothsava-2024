@@ -1,19 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-  AOS.init({
-    duration: 800, // Animation duration
-    easing: 'ease-in-out', // Animation easing
-    once: true, // Whether animation should happen only once
-  });
 
   /*=============== PRELOADER ===============*/
   const preloader = document.querySelector("[data-preloader]");
 
-  window.addEventListener("DOMContentLoaded", function () {
+  window.addEventListener("load", function () {
     preloader.classList.add("loaded");
     document.body.classList.add("loaded");
 
     window.scrollTo(0, 0);
+
+    // Initialize AOS after preloader stops
+    AOS.init({
+      duration: 800, 
+      easing: 'ease-in-out',
+      once: true, 
+    });
   });
+
 
   /*=============== COUNT DOWN ===============*/
   // Set the date we're counting down to
@@ -56,58 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /*=============== SCROLL REVEAL ===============*/
-  document.addEventListener("DOMContentLoaded", function() {  
-    window.sr = ScrollReveal();
-      
-    if (window.innerWidth < 768) {
-      var timelineContent = document.querySelectorAll('.timeline-content');
-      timelineContent.forEach(function(element) {
-    
-        if (element.classList.contains('js--fadeInLeft')) {                
-          element.classList.remove('js--fadeInLeft');
-          element.classList.add('js--fadeInRight');
-        }  
-      });
-         
-      sr.reveal('.js--fadeInRight', {
-        origin: 'right',
-        distance: '300px',
-        easing: 'ease-in-out',
-        duration: 800,
-      });
-      
-    } else {
-      sr.reveal('.js--fadeInLeft', {
-        origin: 'left',
-        distance: '300px',
-        easing: 'ease-in-out',
-        duration: 800,
-      });
-
-      sr.reveal('.js--fadeInRight', {
-        origin: 'right',   
-        distance: '300px',
-        easing: 'ease-in-out',
-        duration: 800,
-      });
-    }
-      
-    sr.reveal('.js--fadeInLeft', {
-      origin: 'left',
-      distance: '300px',
-      easing: 'ease-in-out',
-      duration: 800,
-    });
-    
-    sr.reveal('.js--fadeInRight', {
-      origin: 'right',
-      distance: '300px',
-      easing: 'ease-in-out',
-      duration: 800,
-    });
-  });
-
   /*=============== BACK TO TOP ===============*/
   // Function to show or hide the scroll-up button based on scroll position
   const scrollUp = () => {
@@ -145,30 +96,4 @@ document.addEventListener("DOMContentLoaded", () => {
   if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
   }
-
-  /*=============== TYPING ANIMATION ===============*/
-  const heroTitle = document.querySelector('.hero-title');
-    const spanInnovation = document.querySelector('.hero-title .span');
-
-    const textLoad = () => {
-      setTimeout(() => {
-        spanInnovation.textContent = "Innovation";
-      }, 0);
-      setTimeout(() => {
-        spanInnovation.textContent = "Creativity";
-      }, 4000);
-      setTimeout(() => {
-        spanInnovation.textContent = "Imagination";
-      }, 8000);
-      setTimeout(() => {
-        spanInnovation.textContent = "Vision";
-      }, 12000);
-      setTimeout(() => {
-        spanInnovation.textContent = "Passion";
-      }, 16000);
-    };
-
-    textLoad();
-    setInterval(textLoad, 16000); // Adjust interval as needed
-
 });

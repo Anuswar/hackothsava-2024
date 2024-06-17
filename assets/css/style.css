@@ -118,6 +118,7 @@ body {
   background-color: var(--raisin-black-3);
   font-size: 1.6rem;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 :focus-visible { outline-offset: 4px; }
@@ -430,27 +431,15 @@ body {
 
 .hero-title { 
   margin-block: 15px 12px; 
-  font-size: var(--fs-2); /* Adjust font size as needed */
-  color: var(--white); /* Adjust font color */
+  font-size: var(--fs-2); 
+  color: var(--white); 
 }
 
 .hero-title .span {
-  color: var(--marigold); /* Adjust to your color variable */
+  color: var(--marigold); 
   position: relative;
   overflow: hidden;
   display: inline-block;
-}
-
-.hero-title .span::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: var(--marigold); /* Adjust to your background color */
-  border-left: 2px solid var(--raisin-black-2); /* Adjust border color */
-  animation: animate 4s steps(12) infinite;
 }
 
 @keyframes animate {
@@ -465,7 +454,7 @@ body {
 .hero-text {
   color: var(--light-gray-2);
   margin-block-end: 45px;
-  font-size: 1.5rem; /* Adjust font size as needed */
+  font-size: 1.5rem; 
 }
 
 
