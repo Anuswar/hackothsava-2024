@@ -540,7 +540,7 @@ body {
 
 .themes-card { position: relative; }
 
-.themes-card :is(.card-content, .card-content-overlay) { position: absolute; overflow-x: hidden; }
+.themes-card :is(.card-content, .card-content-overlay) { position: absolute; overflow-y: hidden; }
 
 .themes-card .card-content {
   bottom: 0;
