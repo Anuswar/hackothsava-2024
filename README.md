@@ -1,4 +1,4 @@
-# Ideathon Website 💡
+# 💡 Ideathon Website
 
 This repository contains the source code for a website developed for Ideathon, our college's InterCollege Technical fest. The platform features a user-friendly interface with registration, event details and contact pages.
 
