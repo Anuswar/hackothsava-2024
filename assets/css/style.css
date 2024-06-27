@@ -276,12 +276,15 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
   height: 100vh;
   background-color:  hsla(228, 9%, 10%, 1);
   z-index: 10;
   display: grid;
   place-items: center;
+  padding: 0;
+  margin: 0;
   transition: 0.5s ease;
   transition-delay: 0.5s;
 }
@@ -406,11 +409,10 @@ body {
 
 .navbar-link:is(:hover, :focus) { background-color: var(--white_10); }
 
-/* =============== HERO =============== */
+/* =============== HOME =============== */
+.home-banner { display: none; }
 
-.hero-banner { display: none; }
-
-.hero {
+.home {
   --section-padding: 60px;
   margin-block-start: 84px;
   background-repeat: no-repeat;
@@ -422,41 +424,19 @@ body {
   align-items: center;
 }
 
-.hero-subtitle {
+.home-subtitle {
   color: var(--marigold);
   font-size: var(--fs-6);
   font-weight: var(--fw-700);
   text-transform: uppercase;
 }
 
-.hero-title { 
-  margin-block: 15px 12px; 
-  font-size: var(--fs-2); 
-  color: var(--white); 
-}
+.home-title { margin-block: 15px 12px; }
 
-.hero-title .span {
-  color: var(--marigold); 
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-}
-
-@keyframes animate {
-  40%, 60% {
-    left: calc(100% + 4px);
-  }
-  100% {
-    left: 0%;
-  }
-}
-
-.hero-text {
+.home-text {
   color: var(--light-gray-2);
   margin-block-end: 45px;
-  font-size: 1.5rem; 
 }
-
 
 /* =============== SPONSORS =============== */
 .sponsors {
@@ -540,7 +520,7 @@ body {
 
 .themes-card { position: relative; }
 
-.themes-card :is(.card-content, .card-content-overlay) { position: absolute; overflow-y: none; }
+.themes-card :is(.card-content, .card-content-overlay) { position: absolute; }
 
 .themes-card .card-content {
   bottom: 0;
@@ -1009,8 +989,8 @@ blockquote {
   .container { max-width: 720px; }
   .scrollbar-item { min-width: calc(50% - 15px); }
 
-  /* =============== HERO =============== */
-  .hero-text {
+  /* =============== HOME =============== */
+  .home-text {
     max-width: 60ch;
     margin-inline: auto;
   }
@@ -1184,11 +1164,11 @@ blockquote {
   .navbar-link:is(:hover, :focus)::before { opacity: 1; }
 
   /* =============== HERO =============== */
-  .hero { text-align: left; }
+  .home { text-align: left; }
 
-  .hero-banner { display: block; }
+  .home-banner { display: block; }
 
-  .hero .container {
+  .home .container {
     display: grid;
     grid-template-columns: 1fr 0.9fr;
     align-items: center;
@@ -1241,8 +1221,8 @@ blockquote {
     padding-inline: 25px;
   }
 
-  /* =============== HERO =============== */
-  .hero .container { grid-template-columns: 1fr 1fr; }
+  /* =============== HOME =============== */
+  .home .container { grid-template-columns: 1fr 1fr; }
 
   /* =============== SPONSORS =============== */
   .brand-item { min-width: calc(16.66% - 16.66px); }
@@ -1269,5 +1249,3 @@ blockquote {
   z-index: -1;
   inset: 0;
 }
-
-
