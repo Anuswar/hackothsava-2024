@@ -62,6 +62,7 @@ const navLinks = document.querySelectorAll(".navbar-link");
 
 const scrollThreshold = 200; // Adjust this value as needed
 const footerOffset = document.querySelector("footer").offsetTop;
+const footerHeight = document.querySelector("footer").offsetHeight;
 
 window.addEventListener("scroll", function () {
   let top = window.scrollY;
@@ -100,8 +101,8 @@ window.addEventListener("scroll", function () {
     }
   });
 
-  // Only highlight "Home" link if no other section is active or if we are at the top
-  if ((!activeSectionFound || top < 150) && top < footerOffset) {
+  // Only highlight "Home" link if no other section is active, if we are at the top, or if we are in the footer
+  if ((!activeSectionFound || top < 150) && top < footerOffset - footerHeight) {
     navLinks.forEach((link) => {
       link.classList.remove("active");
     });
@@ -117,6 +118,21 @@ document.addEventListener("DOMContentLoaded", function () {
       .querySelector('.navbar-link[href*="home"]')
       .classList.add("active");
   }
+
+  // Add click event listener to each navigation link
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href").split("#")[1];
+      const targetSection = document.getElementById(targetId);
+      const offsetTop = targetSection.offsetTop;
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    });
+  });
 });
 
 /*=============== SCROLL REVEAL ===============*/
