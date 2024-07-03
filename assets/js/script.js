@@ -57,14 +57,65 @@ for (let i = 0; i < navbarLinks.length; i++) {
 /*=============== HEADER ===============*/
 const header = document.querySelector("[data-header]");
 const backTopBtn = document.querySelector("[data-back-top-btn]");
+const sections = document.querySelectorAll("main section[id]");
+const navLinks = document.querySelectorAll(".navbar-link");
+
+const scrollThreshold = 200; // Adjust this value as needed
+const footerOffset = document.querySelector("footer").offsetTop;
 
 window.addEventListener("scroll", function () {
-  if (window.scrollY >= 200) {
+  let top = window.scrollY;
+
+  if (top >= scrollThreshold) {
     header.classList.add("active");
     backTopBtn.classList.add("active");
   } else {
     header.classList.remove("active");
     backTopBtn.classList.remove("active");
+  }
+
+  let activeSectionFound = false;
+
+  sections.forEach((sec) => {
+    let offset = sec.offsetTop - 150;
+    let height = sec.offsetHeight;
+    let id = sec.getAttribute("id");
+
+    // Check if scroll position is within the section bounds and not in the footer
+    if (top >= offset && top < offset + height && top < footerOffset) {
+      activeSectionFound = true;
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        document
+          .querySelector(".navbar-link[href*=" + id + "]")
+          .classList.add("active");
+      });
+
+      // Remove the fragment identifier from the URL
+      history.replaceState(
+        {},
+        document.title,
+        window.location.pathname + window.location.search
+      );
+    }
+  });
+
+  // Only highlight "Home" link if no other section is active or if we are at the top
+  if ((!activeSectionFound || top < 150) && top < footerOffset) {
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+    });
+    document
+      .querySelector('.navbar-link[href*="home"]')
+      .classList.add("active");
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.scrollY < 150) {
+    document
+      .querySelector('.navbar-link[href*="home"]')
+      .classList.add("active");
   }
 });
 

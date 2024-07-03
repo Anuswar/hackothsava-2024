@@ -506,6 +506,7 @@ body {
 .sponsors {
   --section-padding: 60px;
   background-image: var(--gradient);
+  background: var(--white);
 }
 
 .sponsors .has-scrollbar {
@@ -605,11 +606,15 @@ body {
 }
 
 .themes-card .card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 30px 35px;
   transition: var(--transition);
+  text-align: center; /* Center text within the flex container */
 }
 
 .themes-card .card-content-overlay {
@@ -625,6 +630,7 @@ body {
 
 .themes-card .card-title {
   margin-block-end: 5px;
+  text-align: center; /* Center the text within the title */
 }
 
 .themes-card .card-meta {
@@ -1085,7 +1091,6 @@ blockquote {
 }
 
 /*======= BREAKPOINTS =======*/
-/* responsive for larger than 576px screen */
 @media (min-width: 576px) {
   /* =============== BASE =============== */
   .container {
@@ -1124,7 +1129,13 @@ blockquote {
   }
 }
 
-/* responsive for larger than 768px screen */
+@media (max-width: 600px) {
+  /* =============== FAQ =============== */
+  .faq-content {
+    flex: 1 1 100%;
+  }
+}
+
 @media (min-width: 768px) {
   /* =============== BASE =============== */
   .container {
@@ -1209,7 +1220,6 @@ blockquote {
   }
 }
 
-/* responsive for larger than 992px screen */
 @media (min-width: 992px) {
   /* =============== BASE =============== */
   .container {
@@ -1383,7 +1393,6 @@ blockquote {
   }
 }
 
-/* responsive for larger than 1200px screen */
 @media (min-width: 1200px) {
   /* =============== BASE =============== */
   .container,
@@ -1444,17 +1453,10 @@ blockquote {
   }
 }
 
-.navbar-link.active-link {
+.navbar-link.active {
   background-color: var(--bg, var(--marigold));
   transform: skewX(var(--skewX, -16deg));
   color: #000;
   z-index: -1;
   inset: 0;
-}
-
-/* =============== FAQ =============== */ 
-@media (max-width: 600px) {
-  .faq-content { 
-    flex: 1 1 100%;   
-  }
 }
