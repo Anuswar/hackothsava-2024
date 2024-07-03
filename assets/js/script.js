@@ -170,3 +170,29 @@ if (scrollUpButton) {
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
 }
+
+/*=============== open faq ===============*/
+document.addEventListener("DOMContentLoaded", function () {
+  var acc = document.getElementsByClassName("accordion");
+
+  for (var i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+      var panel = this.nextElementSibling;
+      var isActive = this.classList.toggle("active");
+
+      // Close all panels except the current one
+      var allPanels = document.getElementsByClassName("panel");
+      for (var j = 0; j < allPanels.length; j++) {
+        if (allPanels[j] !== panel) {
+          allPanels[j].style.maxHeight = null;
+        }
+      }
+
+      if (isActive) {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      } else {
+        panel.style.maxHeight = null;
+      }
+    });
+  }
+});

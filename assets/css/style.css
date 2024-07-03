@@ -839,96 +839,105 @@ blockquote {
   display: inline-block;
 }
 
-/* =============== PRICE =============== */
-.price {
+/* =============== FAQ =============== */
+.faq {
   background-color: var(--white);
 }
 
-.price .section-title {
+.faq .section-title {
   color: var(--xiketic);
 }
 
-.price .section-text {
+.faq .section-text {
   color: var(--dim-gray);
   margin-block: 50px 60px;
 }
 
-.price-list {
-  display: grid;
-  gap: 50px;
+.faq .wrapper > p,
+.faq .wrapper > h1 {
+  margin: 1.5rem 0;
+  text-align: center;
 }
 
-.price-card .card-banner {
-  margin-block-end: 30px;
+.faq .wrapper > h1 {
+  letter-spacing: 3px;
 }
 
-.price-card .card-meta-list {
+.faq .accordion {
+  background-color: var(--marigold);
+  color: black;
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  border: none;
+  outline: none;
+  transition: background-color 0.4s, color 0.4s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.faq .accordion ion-icon {
+  font-size: 1.6rem;
+}
+
+.faq .accordion-text {
   display: flex;
   align-items: center;
-  gap: 20px;
 }
 
-.price-card .card-meta-item {
+.faq .icon-box {
+  width: 40px;
+  height: 40px;
+  background-color: white;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 5px;
-  color: var(--quick-silver);
-  font-size: var(--fs-11);
-  font-weight: var(--fw-600);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  margin-right: 10px;
+  border-radius: 5px;
 }
 
-.price-card .card-meta-item ion-icon {
-  --ionicon-stroke-width: 50px;
-  color: var(--marigold);
+.faq .active,
+.faq .accordion:hover {
+  background-color: var(--marigold_75);
 }
 
-.price-card .card-meta-item a.item-text {
-  transition: var(--transition);
+.faq .panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+  background-color: #fff176;
+  padding: 0;
 }
 
-.price-card .card-meta-item a.item-text:is(:hover, :focus) {
-  color: var(--marigold);
+.faq .panel p {
+  color: black;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  padding: 20px;
 }
 
-.price-card .card-title {
-  color: var(--raisin-black-1);
-  font-size: var(--fs-5);
-  font-family: var(--ff-oxanium);
-  font-weight: var(--fw-800);
-  text-transform: uppercase;
-  line-height: 1.2;
-  margin-block: 10px 15px;
-  transition: var(--transition);
+.faq-content {
+  border: 1px solid black;
+  margin: 10px 0;
+  border-radius: 5px;
 }
 
-.price-card .card-title:is(:hover, :focus) {
-  color: var(--marigold);
+.faq-content.active {
+  border: none;
 }
 
-.price-card .card-text {
-  color: var(--dim-gray);
-  font-size: var(--fs-8);
-  font-weight: var(--fw-500);
-  line-height: 1.8;
-  margin-block-end: 25px;
-}
-
-.price-card .card-link {
-  color: var(--raisin-black-1);
-  font-size: var(--fs-9);
-  font-weight: var(--fw-700);
-  text-transform: uppercase;
+.faq-container {
   display: flex;
-  align-items: center;
-  gap: 4px;
-  transition: var(--transition);
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.price-card .card-link ion-icon,
-.price-card .card-link:is(:hover, :focus) {
-  color: var(--marigold);
+.faq-content {
+  flex: 1 1 calc(50% - 10px);
 }
 
 /* =============== FOOTER =============== */
@@ -1104,10 +1113,11 @@ blockquote {
     min-width: 50%;
   }
 
-  /* =============== PRICE =============== */
-  .price-list {
-    grid-template-columns: 75%;
-    justify-content: center;
+  /* =============== FAQ =============== */
+  @media (max-width: 600px) {
+    .faq-content {
+      flex: 1 1 100%;
+    }
   }
 
   /* =============== FOOTER =============== */
@@ -1145,11 +1155,6 @@ blockquote {
   /* =============== VENUE =============== */
   .venue-tour .play-btn {
     font-size: 120px;
-  }
-
-  /* =============== PRICE =============== */
-  .price-list {
-    grid-template-columns: 1fr 1fr;
   }
 
   /* =============== FOOTER =============== */
@@ -1376,12 +1381,6 @@ blockquote {
   /* =============== THEMES =============== */
   .themes .scrollbar-item {
     min-width: 33.33%;
-  }
-
-  /* =============== PRICE =============== */
-  .price-list {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
   }
 
   /* =============== FOOTER =============== */
