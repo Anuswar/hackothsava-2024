@@ -1113,11 +1113,6 @@ blockquote {
     min-width: 50%;
   }
 
-  /* =============== FAQ =============== */
-  .faq-content {
-    flex: 1 1 100%;
-  }
-
   /* =============== FOOTER =============== */
   .footer-top .container {
     grid-template-columns: 1fr 1fr;
@@ -1455,4 +1450,11 @@ blockquote {
   color: #000;
   z-index: -1;
   inset: 0;
+}
+
+/* =============== FAQ =============== */ 
+@media (max-width: 600px) {
+  .faq-content { 
+    flex: 1 1 100%;   
+  }
 }
