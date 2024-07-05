@@ -7,7 +7,7 @@
 
     <!-- favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.svg" />
-    <title>Hackothsav 2K24</title>
+    <title>Hackothsava 2K24</title>
 
     <!-- google font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,7 +45,8 @@
       <div class="header-top">
         <div class="container">
           <div class="countdown-text js--fadeInLeft">
-            Registration ends in: <span class="span skewBg">Ended!</span> Days
+            Registration ends in:
+            <span class="span skewBg" id="countdown">???</span> Days
           </div>
 
           <div class="social-wrapper js--fadeInRight">
@@ -107,7 +108,7 @@
 
       <div class="header-bottom skewBg" data-header>
         <div class="container">
-          <a href="#" class="logo js--fadeInLeft">Hackothsav</a>
+          <a href="#" class="logo js--fadeInLeft">Hackothsava</a>
 
           <nav class="navbar js--fadeInRight" data-navbar>
             <ul class="navbar-list">
@@ -178,10 +179,6 @@
                 href="https://docs.google.com/forms/d/19b7ZoPJ2Jzc9LoQdJvoNjMpDo9ofcWANw3EZigfT10Y/viewform?edit_requested=true#settings"
                 >Registration</a
               >
-            </button>
-
-            <button class="btn skewBg js--fadeInbottom">
-              <a target="_blank" href="">Rules</a>
             </button>
           </div>
 
@@ -285,8 +282,72 @@
           </div>
         </section>
 
-        <!--==================== VOLUNTEER ====================-->
-        <section class="section volunteer" aria-label="volunteer"></section>
+        <!--==================== VENUE ====================-->
+        <section class="section venue" id="venue" aria-label="venue">
+          <div class="container">
+            <h2 class="h2 section-title js--fadeIntop">
+              Organizers & <span class="span">Volunteers</span>
+            </h2>
+
+            <div class="venue-tour">
+              <div class="content">
+                <ul class="team js--fadeIntop">
+                  <li class="member">
+                    <div class="thumb">
+                      <img
+                        src="assets/images/organiser-1.jpg"
+                        alt="Sagar Ganesh"
+                      />
+                    </div>
+                    <div class="description">
+                      <h3>Sagar Ganesh</h3>
+                      <p>
+                        Experienced organizer with a passion for coding and
+                        innovation. He is dedicated to creating an engaging and
+                        productive environment for participants.
+                        <br />
+                        <a href="tel:9036203573">9036203573</a>
+                      </p>
+                    </div>
+                  </li>
+
+                  <li class="member">
+                    <div class="thumb">
+                      <img
+                        src="assets/images/organiser-2.jpg"
+                        alt="Prathviraj"
+                      />
+                    </div>
+                    <div class="description">
+                      <h3>Prathviraj</h3>
+                      <p>
+                        Tech enthusiast and skilled project manager, known for
+                        his ability to coordinate large events efficiently.
+                        <br />
+                        <a href="tel:8546954246">8546954246</a>
+                      </p>
+                    </div>
+                  </li>
+
+                  <li class="member">
+                    <div class="description">
+                      <h3>Volunteers</h3>
+                      <p>
+                        Shreelaxmi Kamath, Vaishnav Rao B, Sneha, Trupti
+                        Devadiga, Sathvik K, Vijetha R Padmashali, Smriti Bhat,
+                        Shashank Poojary, Chaitanya, Ashika
+                        <br />
+                        <a href="mailto:codetroopers@sode-edu.in"
+                          >codetroopers@sode-edu.in</a
+                        >
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
 
       <!--==================== THEMES ====================-->
@@ -633,7 +694,7 @@
       <section class="section faq" id="faq" aria-label="faq">
         <div class="container">
           <h2 class="h2 section-title js--fadeInbottom">
-            <span class="span">Faq</span>
+            Common <span class="span">Questions</span>
           </h2>
 
           <p class="section-text js--fadeIntop">
@@ -646,9 +707,9 @@
               <div class="faq-content">
                 <button class="accordion">
                   <span class="accordion-text">
-                    <span class="icon-box"
-                      ><ion-icon name="help-circle-outline"></ion-icon
-                    ></span>
+                    <span class="icon-box">
+                      <ion-icon name="help-circle-outline"></ion-icon>
+                    </span>
                     What is a hackathon?
                   </span>
                   <ion-icon name="chevron-down-outline"></ion-icon>
@@ -670,15 +731,14 @@
                     <span class="icon-box">
                       <ion-icon name="document-text-outline"></ion-icon>
                     </span>
-
-                    How to register for the hackathon?
+                    Who can participate?
                   </span>
                   <ion-icon name="chevron-down-outline"></ion-icon>
                 </button>
                 <div class="panel">
                   <p>
-                    Go through the rules, then you need to download the
-                    synopsis, then submit it in the registration-form.
+                    Anyone enrolled in an engineering college and actively
+                    pursuing a degree.
                   </p>
                 </div>
               </div>
@@ -686,18 +746,36 @@
               <div class="faq-content">
                 <button class="accordion">
                   <span class="accordion-text">
-                    <span class="icon-box"
-                      ><ion-icon name="location-outline"></ion-icon
-                    ></span>
+                    <span class="icon-box">
+                      <ion-icon name="document-text-outline"></ion-icon>
+                    </span>
+                    How many members are allowed in a team?
+                  </span>
+                  <ion-icon name="chevron-down-outline"></ion-icon>
+                </button>
+                <div class="panel">
+                  <p>
+                    Teams are restricted to 2-4 members and must be from the
+                    same college.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-content">
+                <button class="accordion">
+                  <span class="accordion-text">
+                    <span class="icon-box">
+                      <ion-icon name="location-outline"></ion-icon>
+                    </span>
                     What is the Mode of Hackathon?
                   </span>
                   <ion-icon name="chevron-down-outline"></ion-icon>
                 </button>
                 <div class="panel">
                   <p>
-                    It's an offline event. Location for the Event venue: Shri
-                    Madhwa Vadirja Institute of technology and Management,
-                    Vishwothama Nagar, Bantakal - 574115.
+                    It's an offline event. The event venue is Shri Madhwa
+                    Vadirja Institute of Technology and Management, Vishwothama
+                    Nagar, Bantakal - 574115.
                   </p>
                 </div>
               </div>
@@ -705,9 +783,9 @@
               <div class="faq-content">
                 <button class="accordion">
                   <span class="accordion-text">
-                    <span class="icon-box"
-                      ><ion-icon name="card-outline"></ion-icon
-                    ></span>
+                    <span class="icon-box">
+                      <ion-icon name="card-outline"></ion-icon>
+                    </span>
                     Is there any registration fee for the hackathon?
                   </span>
                   <ion-icon name="chevron-down-outline"></ion-icon>
@@ -720,36 +798,33 @@
               <div class="faq-content">
                 <button class="accordion">
                   <span class="accordion-text">
-                    <span class="icon-box"
-                      ><ion-icon name="time-outline"></ion-icon
-                    ></span>
+                    <span class="icon-box">
+                      <ion-icon name="time-outline"></ion-icon>
+                    </span>
                     What is the duration of the hackathon?
                   </span>
                   <ion-icon name="chevron-down-outline"></ion-icon>
                 </button>
                 <div class="panel">
-                  <p>It's a 36 hour hackathon.</p>
+                  <p>It's a 36-hour hackathon.</p>
                 </div>
               </div>
 
               <div class="faq-content">
                 <button class="accordion">
                   <span class="accordion-text">
-                    <span class="icon-box"
-                      ><ion-icon name="bag-outline"></ion-icon
-                    ></span>
+                    <span class="icon-box">
+                      <ion-icon name="bag-outline"></ion-icon>
+                    </span>
                     What should I bring to a hackathon?
                   </span>
                   <ion-icon name="chevron-down-outline"></ion-icon>
                 </button>
                 <div class="panel">
                   <p>
-                    It's always a good idea to bring your own laptop or
-                    computer, as well as any necessary chargers and cables. You
-                    may also want to bring a notebook and pen for taking notes
-                    or sketching out ideas. Snacks and water are also
-                    recommended, as hackathons can be intense and may not have
-                    food available at all times.
+                    Bring your own laptop or computer, necessary chargers and
+                    cables, a notebook and pen for taking notes or sketching out
+                    ideas. Snacks and water are also recommended.
                   </p>
                 </div>
               </div>
@@ -757,15 +832,52 @@
               <div class="faq-content">
                 <button class="accordion">
                   <span class="accordion-text">
-                    <span class="icon-box"
-                      ><ion-icon name="bed-outline"></ion-icon
-                    ></span>
-                    Is there accommodation facility?
+                    <span class="icon-box">
+                      <ion-icon name="document-text-outline"></ion-icon>
+                    </span>
+                    How to register for the hackathon?
+                  </span>
+                  <ion-icon name="chevron-down-outline"></ion-icon>
+                </button>
+                <div class="panel">
+                  <p>
+                    Go through the rules, download the synopsis, then submit it
+                    in the registration form.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-content">
+                <button class="accordion">
+                  <span class="accordion-text">
+                    <span class="icon-box">
+                      <ion-icon name="bed-outline"></ion-icon>
+                    </span>
+                    Is there an accommodation facility?
                   </span>
                   <ion-icon name="chevron-down-outline"></ion-icon>
                 </button>
                 <div class="panel">
                   <p>Yes, there is a hostel facility provided.</p>
+                </div>
+              </div>
+
+              <div class="faq-content">
+                <button class="accordion">
+                  <span class="accordion-text">
+                    <span class="icon-box">
+                      <ion-icon name="bus-outline"></ion-icon>
+                    </span>
+                    How do I reach SMVITM?
+                  </span>
+                  <ion-icon name="chevron-down-outline"></ion-icon>
+                </button>
+                <div class="panel">
+                  <p>
+                    Participants are responsible for transportation to the Udupi
+                    station. Commuting from the SMVITM Campus will be
+                    facilitated by the organizers.
+                  </p>
                 </div>
               </div>
             </div>
@@ -779,7 +891,7 @@
       <div class="footer-top">
         <div class="container">
           <div class="footer-brand">
-            <a href="#" class="logo js--fadeInbottom">Hackothsav</a>
+            <a href="#" class="logo js--fadeInbottom">Hackothsava</a>
 
             <p class="footer-text js--fadeInbottom">
               We look forward to your support and approval for this event.
@@ -856,10 +968,6 @@
             <li class="js--fadeInbottom">
               <a href="#" class="footer-link">Privacy Policy</a>
             </li>
-
-            <li class="js--fadeInbottom">
-              <a href="#" class="footer-link">Rules</a>
-            </li>
           </ul>
 
           <div class="footer-wrapper">
@@ -929,7 +1037,7 @@
       <div class="footer-bottom">
         <div class="container">
           <p class="copyright">
-            &copy; 2024 Hackothsav. All Right Reserved by
+            &copy; 2024 Hackothsava. All Right Reserved by
             <a target="_blank" href="#" class="copyright-link"
               >Anuswar | Smitha</a
             >

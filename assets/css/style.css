@@ -64,6 +64,11 @@
   /* transition */
   --transition: 0.25s ease;
   --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+
+  --yellow: #ffdd40;
+  --dark: #2f313a;
+  --deg: -86deg;
+  --trans: all 0.4s ease 0s;
 }
 
 /* =============== BASE =============== */
@@ -568,19 +573,8 @@ body {
 
 .venue-tour {
   position: relative;
-  background-color: var(--light-gray-1);
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: var(--shadow-3);
-}
-
-.venue-tour .play-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--marigold);
-  font-size: 60px;
 }
 
 /* =============== THEMES =============== */
@@ -614,7 +608,7 @@ body {
   right: 0;
   padding: 30px 35px;
   transition: var(--transition);
-  text-align: center; /* Center text within the flex container */
+  text-align: center;
 }
 
 .themes-card .card-content-overlay {
@@ -630,7 +624,7 @@ body {
 
 .themes-card .card-title {
   margin-block-end: 5px;
-  text-align: center; /* Center the text within the title */
+  text-align: center;
 }
 
 .themes-card .card-meta {
@@ -658,8 +652,8 @@ body {
 
 .themes-card .card-icon {
   margin-block-end: 20px;
-  font-size: 36px; /* Adjust the size of the icon if needed */
-  color: var(--xiketic); /* Set the color of the icon */
+  font-size: 36px;
+  color: var(--xiketic);
 }
 
 .themes-card .card-content-overlay .card-title {
@@ -1459,4 +1453,148 @@ blockquote {
   color: #000;
   z-index: -1;
   inset: 0;
+}
+
+/* =============== FOOTER =============== */
+.venue-tour {
+  font-family: "Lato", Arial, Helvetica, serif;
+  font-size: 1em;
+}
+
+.venue-tour h2 {
+  text-align: center;
+}
+
+.venue-tour .member {
+  margin: 1.5em 0 0.5em;
+  padding: 0.73em;
+  background: linear-gradient(
+    83deg,
+    var(--marigold) 0 97%,
+    #fff0 calc(97% + 1px) 100%
+  );
+  position: relative;
+  list-style: none;
+  display: inline-block;
+  transform: scale(0.85);
+  transition: var(--trans);
+}
+
+.venue-tour .member:nth-of-type(even) {
+  text-align: right;
+  background: linear-gradient(
+    -83deg,
+    var(--marigold) 0 97%,
+    #fff0 calc(97% + 1px) 100%
+  );
+}
+
+.venue-tour .thumb {
+  width: 13vmin;
+  height: 13vmin;
+  float: left;
+  margin-right: 1.25em;
+  background: linear-gradient(
+    var(--deg),
+    var(--dark) 0 70%,
+    var(--marigold) 0% 100%
+  );
+  transform: rotate(-4deg);
+  transition: var(--trans);
+  border-radius: 0.25em;
+  overflow: hidden;
+  margin-left: -3em;
+  padding: 0.5em;
+}
+
+.venue-tour .member:nth-of-type(even) .thumb {
+  --deg: 86deg;
+  float: right;
+  margin-left: 2em;
+  margin-right: -3em;
+  transform: rotate(4deg);
+}
+
+.venue-tour .thumb img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.25em;
+  filter: grayscale(1);
+  background: var(--dark);
+}
+
+.venue-tour .member:hover {
+  transform: scale(1);
+  transition: var(--trans);
+  transform: rotate(-1deg);
+  --deg: -89deg;
+}
+
+.venue-tour .member:nth-of-type(even):hover .thumb {
+  --deg: 91deg;
+}
+
+.venue-tour .member:hover .thumb img {
+  filter: none;
+  transition: var(--trans);
+}
+
+.venue-tour .description {
+  padding-top: 1vmin;
+}
+
+.venue-tour .description p {
+  padding: 0 2em;
+  margin-bottom: 1em;
+}
+
+.venue-tour h3 {
+  background: linear-gradient(182deg, #fff0 60%, var(--dark) 0 100%);
+  display: inline;
+  transform: rotate(-2deg);
+  position: absolute;
+  margin: 0;
+  margin-top: -2.25em;
+  left: 9vmin;
+  padding: 0.5em 0.75em;
+  color: var(--marigold);
+  border-radius: 0.25em;
+  font-size: 1.35em;
+  transform-origin: left bottom;
+}
+
+.venue-tour .member:nth-last-of-type(even) h3 {
+  left: inherit;
+  right: 9vmin;
+  transform: rotate(2deg);
+  transform-origin: right bottom;
+  background: linear-gradient(-182deg, #fff0 60%, var(--dark) 0 100%);
+}
+
+.venue-tour .description p a {
+  display: inline-block;
+  margin: 0.5em 0 0 0;
+  background: var(--dark);
+  color: var(--marigold);
+  padding: 0.1em 0.5em 0.35em;
+  border-radius: 0.5em;
+  text-decoration: none;
+  transition: var(--trans);
+}
+
+.venue-tour .description p a:hover {
+  transition: var(--trans);
+  color: var(--dark);
+  background: var(--marigold);
+  font-weight: bold;
+}
+
+.venue-tour .description p a img {
+  float: left;
+  width: 22px;
+  filter: invert(1);
+  border-radius: 0.15em;
+  padding: 2px;
+  background: #fff;
+  margin-right: 2px;
 }

@@ -9,50 +9,29 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 /*=============== COUNT DOWN ===============*/
-// Set the date we're counting down to
-var countDownDate = new Date();
+// Set the target date for the countdown
+var targetDate = new Date("July 20, 2024").getTime();
 
-countDownDate.setDate(countDownDate.getDate() + 30);
-
-// Update the count down every 1 second
-var countdownFunction = setInterval(function () {
+// Update the countdown every second
+var countdownTimer = setInterval(function () {
   // Get today's date and time
   var now = new Date().getTime();
 
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+  // Find the distance between now and the target date
+  var distance = targetDate - now;
 
-  // Time calculations for days
+  // Calculate the number of days left
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
-  // Display the result in the element with class="span"
-  var countdownElement = document.querySelector(".span");
-  countdownElement.innerHTML = days;
-
-  // If the count down is over, write some text
+  // If the countdown is over, display "Ended!"
   if (distance < 0) {
-    clearInterval(countdownFunction);
-    countdownElement.innerHTML = "Ended!";
+    clearInterval(countdownTimer);
+    document.getElementById("countdown").innerHTML = "Ended!";
+  } else {
+    // Otherwise, display the number of days left
+    document.getElementById("countdown").innerHTML = days;
   }
 }, 1000);
-
-("use strict");
-
-const navbar = document.querySelector("[data-navbar]");
-const navbarLinks = document.querySelectorAll("[data-nav-link]");
-const navbarToggler = document.querySelector("[data-nav-toggler]");
-
-navbarToggler.addEventListener("click", function () {
-  navbar.classList.toggle("active");
-  this.classList.toggle("active");
-});
-
-for (let i = 0; i < navbarLinks.length; i++) {
-  navbarLinks[i].addEventListener("click", function () {
-    navbar.classList.remove("active");
-    navbarToggler.classList.remove("active");
-  });
-}
 
 /*=============== HEADER ===============*/
 const header = document.querySelector("[data-header]");
@@ -134,6 +113,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+/*=============== MOBILE MENU ===============*/
+const navbar = document.querySelector("[data-navbar]");
+const navbarLinks = document.querySelectorAll("[data-nav-link]");
+const navbarToggler = document.querySelector("[data-nav-toggler]");
+
+navbarToggler.addEventListener("click", function () {
+  navbar.classList.toggle("active");
+  this.classList.toggle("active");
+});
+
+for (let i = 0; i < navbarLinks.length; i++) {
+  navbarLinks[i].addEventListener("click", function () {
+    navbar.classList.remove("active");
+    navbarToggler.classList.remove("active");
+  });
+}
 
 /*=============== SCROLL REVEAL ===============*/
 document.addEventListener("DOMContentLoaded", function () {
