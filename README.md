@@ -12,8 +12,8 @@ To run this website locally or make contributions, follow these steps:
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/Anuswar/hackothsava2024.git
-    cd hackothsava2024
+    git clone https://github.com/Anuswar/hackothsava-2024.git
+    cd hackothsava-2024
     ```
 
 2. **Open the `index.html` file** in your preferred web browser.
