@@ -1012,7 +1012,18 @@ blockquote {
   font-weight: var(--fw-500);
 }
 
+.item-text {
+  font-size: var(--fs-9);
+  max-width: max-content;
+  transition: var(--transition);
+}
+
 .footer-link:is(:hover, :focus) {
+  color: var(--marigold);
+  transform: translateX(5px);
+}
+
+.item-text:is(:hover, :focus) {
   color: var(--marigold);
   transform: translateX(5px);
 }
@@ -1030,6 +1041,10 @@ blockquote {
   color: var(--white);
   padding: 10px;
   border-radius: 2px;
+}
+
+.social-link:hover {
+  color: var(--marigold);
 }
 
 .footer-btn {
@@ -1063,6 +1078,10 @@ blockquote {
 .copyright-link {
   display: inline-block;
   color: var(--marigold);
+}
+
+.copyright-link:hover {
+  color: var(--marigold_75);
 }
 
 /* =============== BACK TO TOP =============== */
@@ -1294,7 +1313,7 @@ blockquote {
     top: 0;
     left: -15px;
     right: auto;
-    width: 170px;
+    width: 250px;
     --skewX: 16deg;
   }
 

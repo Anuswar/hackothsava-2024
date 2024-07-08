@@ -4,22 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Terms and Conditions | Hackathon 2024</title>
-    <link rel="icon" href="../images/hackathon-logo-small.png" />
+    <link rel="icon" href="../images/favicon.webp" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
     <style>
+      :root {
+        --primary-color: hsl(42, 99%, 46%);
+        --text-color: hsl(0, 0%, 89%);
+        --background-color: hsl(236, 17%, 17%);
+        --secondary-color: hsl(0, 0%, 16%);
+      }
+
       body {
         font-family: "Arial", sans-serif;
-        background-color: #f0f2f5;
-        color: #1c1e21;
+        background-color: var(--background-color);
+        color: var(--text-color);
         margin: 0;
         padding: 0;
       }
 
       header {
-        background: #4267b2;
+        background: var(--secondary-color);
         color: #fff;
         padding: 20px 0;
         border-bottom: #fff 3px solid;
@@ -28,10 +35,12 @@
       header .navbar-brand {
         font-size: 1.5rem;
         margin: 0;
+        color: var(--primary-color);
       }
 
       main {
-        background-color: #fff;
+        background-color: var(--secondary-color);
+        color: var(--text-color);
         padding: 20px;
         margin: 20px 0;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -39,11 +48,16 @@
 
       h2,
       h3 {
-        color: #4267b2;
+        color: var(--primary-color);
       }
 
       a {
-        color: #4267b2;
+        color: var(--primary-color);
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--primary-color);
       }
 
       ul {
@@ -54,22 +68,47 @@
         list-style-type: none;
       }
 
+      ul li a:hover {
+        color: var(--primary-color);
+        text-decoration: underline;
+      }
+
       footer {
-        background: #4267b2;
+        background: var(--secondary-color);
         color: #fff;
         text-align: center;
         padding: 20px 0;
         margin-top: 20px;
       }
 
-      footer .social-media a {
+      footer a {
         color: #fff;
         margin: 0 10px;
         text-decoration: none;
       }
 
-      footer .social-media a:hover {
+      footer a:hover {
+        color: var(--primary-color);
         text-decoration: underline;
+      }
+
+      header .navbar .container .navbar-brand {
+        font-weight: 900;
+        color: var(--primary-color);
+      }
+
+      header
+        .navbar
+        .container
+        .navbar-collapse
+        .navbar-nav
+        .nav-item
+        .nav-link:hover {
+        color: var(--primary-color);
+      }
+
+      .container .list-inline .list-inline-item a {
+        color: var(--primary-color);
       }
     </style>
   </head>
@@ -110,7 +149,7 @@
               <li class="nav-item">
                 <a
                   class="nav-link"
-                  href="https://docs.google.com/forms/d/19b7ZoPJ2Jzc9LoQdJvoNjMpDo9ofcWANw3EZigfT10Y/viewform?edit_requested=true#settings"
+                  href="https://unstop.com/hackathons/hackothsav-2k24-shri-madhwa-vadiraja-institute-of-technology-and-management-smvitm-shankarapura-karnataka-1065624?lb=XcGjD5cC"
                   >Registration</a
                 >
               </li>
@@ -264,11 +303,16 @@
       <div class="container">
         <ul class="list-inline">
           <li class="list-inline-item">
-            <a href="privacy_policy.html">Privacy Policy</a>
+            <a href="Privacy-Policy.html">Privacy Policy</a>
           </li>
           <li class="list-inline-item">
-            <a href="terms_and_conditions.html">Terms and Conditions</a>
+            <a href="terms-and-conditions.html">Terms and Conditions</a>
           </li>
+
+          <li class="list-inline-item">
+            <a href="guidelines.html">Guidelines</a>
+          </li>
+
           <li class="list-inline-item"><a href="/index.html">home</a></li>
         </ul>
 
