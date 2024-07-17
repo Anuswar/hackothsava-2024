@@ -1,0 +1,20 @@
+{
+  "name": "Hackothsava2k24",
+  "short_name": "Hackothsava2k24",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "hsl(42, 99%, 46%)",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "assets/images/favicon.webp",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/favicon.webpg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
