@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 /*=============== COUNT DOWN ===============*/
 // Set the target date for the countdown
-var targetDate = new Date("July 20, 2024").getTime();
+var targetDate = new Date("July 31, 2024").getTime();
 
 // Update the countdown every second
 var countdownTimer = setInterval(function () {
