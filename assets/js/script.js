@@ -1,12 +1,13 @@
 /*=============== PRELOADER ===============*/
 const preloader = document.querySelector("[data-preloader]");
+if (preloader) {
+  window.addEventListener("DOMContentLoaded", function () {
+    preloader.classList.add("loaded");
+    document.body.classList.add("loaded");
 
-window.addEventListener("DOMContentLoaded", function () {
-  preloader.classList.add("loaded");
-  document.body.classList.add("loaded");
-
-  window.scrollTo(0, 0);
-});
+    window.scrollTo(0, 0);
+  });
+}
 
 /*=============== COUNT DOWN ===============*/
 // Set the target date for the countdown
@@ -26,10 +27,15 @@ var countdownTimer = setInterval(function () {
   // If the countdown is over, display "Ended!"
   if (distance < 0) {
     clearInterval(countdownTimer);
-    document.getElementById("countdown").innerHTML = "Ended!";
+    const countdownElement = document.getElementById("countdown");
+    if (countdownElement) {
+      countdownElement.innerHTML = "Ended!";
+    }
   } else {
-    // Otherwise, display the number of days left
-    document.getElementById("countdown").innerHTML = days;
+    const countdownElement = document.getElementById("countdown");
+    if (countdownElement) {
+      countdownElement.innerHTML = days;
+    }
   }
 }, 1000);
 
@@ -40,18 +46,21 @@ const sections = document.querySelectorAll("main section[id]");
 const navLinks = document.querySelectorAll(".navbar-link");
 
 const scrollThreshold = 200; // Adjust this value as needed
-const footerOffset = document.querySelector("footer").offsetTop;
-const footerHeight = document.querySelector("footer").offsetHeight;
+const footer = document.querySelector("footer");
+const footerOffset = footer ? footer.offsetTop : 0;
+const footerHeight = footer ? footer.offsetHeight : 0;
 
 window.addEventListener("scroll", function () {
   let top = window.scrollY;
 
-  if (top >= scrollThreshold) {
-    header.classList.add("active");
-    backTopBtn.classList.add("active");
-  } else {
-    header.classList.remove("active");
-    backTopBtn.classList.remove("active");
+  if (header && backTopBtn) {
+    if (top >= scrollThreshold) {
+      header.classList.add("active");
+      backTopBtn.classList.add("active");
+    } else {
+      header.classList.remove("active");
+      backTopBtn.classList.remove("active");
+    }
   }
 
   let activeSectionFound = false;
@@ -66,9 +75,12 @@ window.addEventListener("scroll", function () {
       activeSectionFound = true;
       navLinks.forEach((link) => {
         link.classList.remove("active");
-        document
-          .querySelector(".navbar-link[href*=" + id + "]")
-          .classList.add("active");
+        const sectionLink = document.querySelector(
+          ".navbar-link[href*=" + id + "]"
+        );
+        if (sectionLink) {
+          sectionLink.classList.add("active");
+        }
       });
 
       // Remove the fragment identifier from the URL
@@ -80,22 +92,24 @@ window.addEventListener("scroll", function () {
     }
   });
 
-  // Only highlight "Home" link if no other section is active, if we are at the top, or if we are in the footer
+  // Only highlight "Home" link if no other section is active, or we are in the footer
   if ((!activeSectionFound || top < 150) && top < footerOffset - footerHeight) {
     navLinks.forEach((link) => {
       link.classList.remove("active");
     });
-    document
-      .querySelector('.navbar-link[href*="home"]')
-      .classList.add("active");
+    const homeLink = document.querySelector('.navbar-link[href*="home"]');
+    if (homeLink) {
+      homeLink.classList.add("active");
+    }
   }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
   if (window.scrollY < 150) {
-    document
-      .querySelector('.navbar-link[href*="home"]')
-      .classList.add("active");
+    const homeLink = document.querySelector('.navbar-link[href*="home"]');
+    if (homeLink) {
+      homeLink.classList.add("active");
+    }
   }
 
   // Add click event listener to each navigation link
@@ -104,12 +118,13 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       const targetId = this.getAttribute("href").split("#")[1];
       const targetSection = document.getElementById(targetId);
-      const offsetTop = targetSection.offsetTop;
-
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth",
-      });
+      if (targetSection) {
+        const offsetTop = targetSection.offsetTop;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: "smooth",
+        });
+      }
     });
   });
 });
@@ -119,38 +134,56 @@ const navbar = document.querySelector("[data-navbar]");
 const navbarLinks = document.querySelectorAll("[data-nav-link]");
 const navbarToggler = document.querySelector("[data-nav-toggler]");
 
-navbarToggler.addEventListener("click", function () {
-  navbar.classList.toggle("active");
-  this.classList.toggle("active");
-});
+if (navbarToggler) {
+  navbarToggler.addEventListener("click", function () {
+    if (navbar) navbar.classList.toggle("active");
+    this.classList.toggle("active");
+  });
 
-for (let i = 0; i < navbarLinks.length; i++) {
-  navbarLinks[i].addEventListener("click", function () {
-    navbar.classList.remove("active");
-    navbarToggler.classList.remove("active");
+  navbarLinks.forEach((link) => {
+    link.addEventListener("click", function () {
+      if (navbar) navbar.classList.remove("active");
+      navbarToggler.classList.remove("active");
+    });
   });
 }
 
 /*=============== SCROLL REVEAL ===============*/
 document.addEventListener("DOMContentLoaded", function () {
-  window.sr = ScrollReveal();
+  if (typeof ScrollReveal !== "undefined") {
+    window.sr = ScrollReveal();
 
-  if (window.innerWidth < 768) {
-    var timelineContent = document.querySelectorAll(".timeline-content");
-    timelineContent.forEach(function (element) {
-      if (element.classList.contains("js--fadeInLeft")) {
-        element.classList.remove("js--fadeInLeft");
-        element.classList.add("js--fadeInRight");
-      }
-    });
+    if (window.innerWidth < 768) {
+      var timelineContent = document.querySelectorAll(".timeline-content");
+      timelineContent.forEach(function (element) {
+        if (element.classList.contains("js--fadeInLeft")) {
+          element.classList.remove("js--fadeInLeft");
+          element.classList.add("js--fadeInRight");
+        }
+      });
 
-    sr.reveal(".js--fadeInRight", {
-      origin: "right",
-      distance: "300px",
-      easing: "ease-in-out",
-      duration: 800,
-    });
-  } else {
+      sr.reveal(".js--fadeInRight", {
+        origin: "right",
+        distance: "300px",
+        easing: "ease-in-out",
+        duration: 800,
+      });
+    } else {
+      sr.reveal(".js--fadeInLeft", {
+        origin: "left",
+        distance: "300px",
+        easing: "ease-in-out",
+        duration: 800,
+      });
+
+      sr.reveal(".js--fadeInRight", {
+        origin: "right",
+        distance: "300px",
+        easing: "ease-in-out",
+        duration: 800,
+      });
+    }
+
     sr.reveal(".js--fadeInLeft", {
       origin: "left",
       distance: "300px",
@@ -164,36 +197,22 @@ document.addEventListener("DOMContentLoaded", function () {
       easing: "ease-in-out",
       duration: 800,
     });
+
+    sr.reveal(".js--fadeInbottom", {
+      origin: "bottom",
+      distance: "300px",
+      easing: "ease-in-out",
+      duration: 800,
+    });
+
+    sr.reveal(".js--fadeIntop", {
+      delay: 300,
+      distance: "20px",
+      origin: "top",
+      easing: "ease-in-out",
+      interval: 200,
+    });
   }
-
-  sr.reveal(".js--fadeInLeft", {
-    origin: "left",
-    distance: "300px",
-    easing: "ease-in-out",
-    duration: 800,
-  });
-
-  sr.reveal(".js--fadeInRight", {
-    origin: "right",
-    distance: "300px",
-    easing: "ease-in-out",
-    duration: 800,
-  });
-
-  sr.reveal(".js--fadeInbottom", {
-    origin: "bottom",
-    distance: "300px",
-    easing: "ease-in-out",
-    duration: 800,
-  });
-
-  sr.reveal(".js--fadeIntop", {
-    delay: 300,
-    distance: "20px",
-    origin: "top",
-    easing: "ease-in-out",
-    interval: 200,
-  });
 });
 
 /*=============== BACK TO TOP ===============*/

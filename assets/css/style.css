@@ -290,9 +290,7 @@ body {
   background-color: var(--light-gray-1);
 }
 
-.img-holder {
-  aspect-ratio: var(--width) / var(--height);
-}
+.img-holder { aspect-ratio: var(--width) / var(--height); }
 
 .img-cover {
   width: 100%;
@@ -1889,4 +1887,100 @@ blockquote {
   padding: 2px;
   background: #fff;
   margin-right: 2px;
+}
+
+
+
+.volunteers-banner {
+  position: relative;
+  background-color: var(--light-gray-1);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow-3);
+}
+
+@media (min-width: 992px) {
+  .volunteers-banner {
+    max-width: 700px;
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .volunteers-banner { max-width: max-content; }
+}
+
+
+
+
+.schedule {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.schedule .section-text { margin-block: 50px 60px; }
+
+.schedule .has-scrollbar {
+  margin-inline: -15px;
+  padding-inline: 15px;
+  scroll-padding-inline-start: 15px;
+}
+
+.winners-card {
+  box-shadow: var(--shadow-4);
+  height: 100%;
+}
+
+.winners-card .card-content {
+  position: relative;
+  padding: 25px;
+  padding-block-start: 40px;
+}
+
+.winners-card .card-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.winners-card .h3 { font-size: var(--fs-7); }
+
+.winners-card .card-title {
+  transition: var(--transition);
+  margin-block-end: 10px;
+}
+
+.winners-card .card-title:is(:hover, :focus) { color: var(--marigold); }
+
+.winners-card .card-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--marigold);
+}
+
+.winners-card .card-price {
+  font-family: var(--ff-oxanium);
+  font-weight: var(--fw-800);
+}
+
+.winners-card .card-btn {
+  color: inherit;
+  font-size: 18px;
+  padding: 7px;
+  border: 1px solid var(--english-violet);
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.winners-card .card-btn:is(:hover, :focus) {
+  background-color: var(--marigold);
+  color: var(--xiketic);
+  border-color: var(--marigold);
+}
+
+@media (min-width: 1200px) {
+  .schedule .has-scrollbar { padding-block-end: 15px; }
 }
